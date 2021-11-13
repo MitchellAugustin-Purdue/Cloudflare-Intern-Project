@@ -7,7 +7,10 @@ import Post from './components/post'
 
 function App() {
   return (
-    <Posts path="/" />
+    <Router>
+      <Posts path="/" />
+      <Post path="/posts/:id" />
+    </Router>
   );
 }
 

@@ -5,9 +5,16 @@ const Post = ({ id }) => {
   const [post, setPost] = useState({});
 
   useEffect(() => {
+    const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Content-type': 'application/json'
+    }
     const getPost = async () => {
       const resp = await fetch(
-        `https://serverless-api.signalnerve.workers.dev/api/posts/${id}`
+        `https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts/${id}`, headers
       );
       const postResp = await resp.json();
       setPost(postResp);
@@ -18,12 +25,15 @@ const Post = ({ id }) => {
 
   if (!Object.keys(post).length) return <div />;
 
+  console.log(post.published_at * 1)
+  console.log(new Date(post.published_at * 1).toLocaleString("en-US"))
   return (
     <div>
       <h1>{post.title}</h1>
-      <p>{post.text}</p>
+      <h2>{post.username}</h2>
+      <p>{post.content}</p>
       <p>
-        <em>Published {new Date(post.published_at).toLocaleString()}</em>
+        <em>Published {new Date(post.published_at * 1).toLocaleString()}</em>
       </p>
       <p>
         <Link to="/">Go back</Link>

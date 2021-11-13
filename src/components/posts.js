@@ -5,9 +5,16 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Content-type': 'application/json'
+    }
     const getPosts = async () => {
       const resp = await fetch(
-        "https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts"
+        "https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts", headers
       );
       const postsResp = await resp.json();
       setPosts(postsResp);
