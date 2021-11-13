@@ -9,6 +9,7 @@ const Posts = () => {
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Credentials': 'true',
             'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Methods': 'POST',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Content-type': 'application/json'
     }
@@ -17,6 +18,8 @@ const Posts = () => {
         "https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts", headers
       );
       const postsResp = await resp.json();
+      console.log("PostsResp");
+      console.log(postsResp);
       setPosts(postsResp);
     };
 
