@@ -30,7 +30,7 @@ const Post = ({ id }) => {
   console.log(new Date(post.published_at * 1).toLocaleString("en-US"))
   return (
     <div>
-      <img src={post.imageurl} alt="No Image :(" height="80" width="80"></img>
+      <img src={post.image} alt="No Image :(" height="80" width="80"></img>
           <h2>
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </h2>
