@@ -29,11 +29,13 @@ const Post = ({ id }) => {
   console.log(new Date(post.published_at * 1).toLocaleString("en-US"))
   return (
     <div>
-      <h1>{post.title}</h1>
-      <h2>{post.username}</h2>
+      <img src={post.imageurl} alt="No Image :(" height="80" width="80"></img>
+          <h2>
+            <Link to={`/posts/${post.id}`}>{post.title}</Link>
+          </h2>
       <p>{post.content}</p>
       <p>
-        <em>Published {new Date(post.published_at * 1).toLocaleString()}</em>
+        <em>Published by {post.username} at {new Date(post.published_at * 1).toLocaleString()}</em>
       </p>
       <p>
         <Link to="/">Go back</Link>

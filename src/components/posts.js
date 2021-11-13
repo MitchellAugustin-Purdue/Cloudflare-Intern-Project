@@ -22,19 +22,24 @@ const Posts = () => {
 
     getPosts();
   }, []);
-
+  
   return (
     <div>
       <h1>Posts</h1>
-      {posts.map((post) => (
+      <hr/>
+      {posts.reverse().map((post) => (
         <div key={post.id}>
+          <img src={post.image} alt="No Image :(" height="80" width="80"></img>
           <h2>
             <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </h2>
+          <h3>{post.content}</h3>
+          <p>-{post.username}, {new Date(post.published_at * 1).toLocaleString()}</p>
+        <hr/>
         </div>
       ))}
     </div>
-  );
+  )
 };
 
 export default Posts;
