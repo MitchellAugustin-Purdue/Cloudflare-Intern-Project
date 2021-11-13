@@ -7,7 +7,6 @@ import Post from './components/post'
 
 function App() {
   return (
-    <html>Hello World</html>
     <Posts path="/" />
   );
 }

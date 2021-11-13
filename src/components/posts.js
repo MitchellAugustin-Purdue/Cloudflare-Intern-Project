@@ -7,7 +7,7 @@ const Posts = () => {
   useEffect(() => {
     const getPosts = async () => {
       const resp = await fetch(
-        "https://serverless-api.signalnerve.workers.dev/api/posts"
+        "https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts"
       );
       const postsResp = await resp.json();
       setPosts(postsResp);
