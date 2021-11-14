@@ -106,9 +106,7 @@ function submitForm() {
         console.log(xhr.status);
         console.log(xhr.responseText);
     }};
-  xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     
   var formData = {}
   formData["username"] = document.getElementById("formUsername").value;
@@ -122,13 +120,10 @@ function submitForm() {
   <form id="postForm" action="https://cloudsocial-internship.cloudsocial-internship-project.workers.dev/posts" class="form-container" method="POST">
     <h1>Create Post</h1>
 
-    <label for="username"><b>Username</b></label>
     <input id="formUsername" type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="content"><b>Post Text</b></label>
     <input id="formContent" type="text" placeholder="Enter Post Body" name="content" required>
     
-    <label for="image"><b>Post Image Link</b></label>
     <input id="formImage" type="text" placeholder="Enter Image Link" name="image" required>
 
     <button type="button" class="btn" onclick="submitForm()">Post</button>
