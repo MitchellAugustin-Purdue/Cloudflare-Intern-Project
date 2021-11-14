@@ -106,13 +106,15 @@ function submitForm() {
         console.log(xhr.status);
         console.log(xhr.responseText);
     }};
-  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Content-Type", "text/plain");
     
   var formData = {}
   formData["username"] = document.getElementById("formUsername").value;
+  formData["title"] = document.getElementById("formTitle").value;
   formData["content"] = document.getElementById("formContent").value;
   formData["image"] = document.getElementById("formImage").value;
-  xhr.send(formData);
+  console.log(JSON.stringify(formData));
+  xhr.send(JSON.stringify(formData));
   closeForm();
 }
 </script>
@@ -121,6 +123,8 @@ function submitForm() {
     <h1>Create Post</h1>
 
     <input id="formUsername" type="text" placeholder="Enter Username" name="username" required>
+    
+    <input id="formTitle" type="text" placeholder="Enter Post Title" name="title" required>
 
     <input id="formContent" type="text" placeholder="Enter Post Body" name="content" required>
     
